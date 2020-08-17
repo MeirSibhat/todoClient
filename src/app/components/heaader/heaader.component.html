@@ -1,0 +1,125 @@
+<div >
+  <header class="container d-flex align-items-center">
+    <div class="container text-center">
+      <h1 class="display-2">Todo's</h1>
+    </div>
+  </header>
+  <!-- <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#modelAdd" style="margin-top: -45px;"> click</button> -->
+  <nav class="navbar navbar-light bg-light" style="background-color: #e3f2fd;">
+
+    <div class="dropdown">
+      <button type="button" class="btn btn-outline-primary btn-sm  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-sort-amount-up"></i> Sort
+      </button>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <div className="dropdown-item" (click)="dosort($event)"  >category</div>
+        <div className="dropdown-item"  (click)="dosort($event)" >name</div>
+        <div className="dropdown-item"  (click)="dosort($event)" >date</div>
+      </div>
+    </div>
+<span class="myTitle">   Meir 's Todo's </span>
+<div class="btn-group" role="group" aria-label="Third group">
+  <button class="btn btn-outline-dark btn-sm float-right mr-2" type="button" (click)="confirmRemove()"><i class="fas fa-trash"></i> All</button>
+  <button class="btn btn-outline-dark btn-sm float-right" type="button" data-toggle="modal" data-target="#modelAdd">  <i class="fas fa-plus-circle"></i> Add</button>
+</div>
+  </nav>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelAdd" tabindex="-1" role="dialog" aria-labelledby="modelAddLabel" aria-hidden="true" style="margin-top: 120px;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title align-items-center" id="modelAddLabel">Add Todo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)='onSubmit(Form)' #Form='ngForm'>
+
+             <div class="form-group col-12">
+          <label for="category" class="form-label">Category</label>
+          <select class="selectpicker" class="form-control" #propsCategory='ngModel'
+          required minlength=4  ngModel name="category">
+            <option>Sport</option>
+            <option>Meet</option>
+            <option>HomeWork</option>
+            <option>Studies</option>
+            <option>tours</option>
+
+
+          </select>
+          <span  *ngIf="(propsCategory.formDirective.submitted&&!propsCategory.valid)||
+          (!propsCategory.valid && propsCategory.touched)" class="erro-block-category">
+           <span *ngIf="propsCategory.errors.required">Please provide category </span>
+           <span *ngIf="propsCategory.errors.minlength">  Category must be atleast 4 char long </span>
+         </span>
+        </div>
+
+
+
+        <div class="form-group col-12">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" #propsName='ngModel'
+         required  minlength=10  ngModel name="name">
+          <!-- <span  *ngIf="!propsName.valid && propsName.touched" class="erro-block-name"> -->
+         <span  *ngIf="(propsName.formDirective.submitted&&!propsName.valid) ||
+         (!propsName.valid && propsName.touched)" class="erro-block-name">
+          <span *ngIf="propsName.errors.required">Please provide name </span>
+          <span *ngIf="propsName.errors.minlength"> Name must be atleast 10 char long </span>
+        </span>
+      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <span *ngIf="(Form.valid)">   <button type="submit" class="btn btn-primary" >Save changes</button></span>
+          <span *ngIf="(!Form.valid)">   <button type="submit" class="btn btn-warning" >Save changes</button></span>
+        </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+ <!-- remove -->
+<div *ngIf="this.open">
+
+  <div class="dark " id="id_dark">
+    <div class="dark_box text-center">
+
+      <br> <br> <br>
+      <span class="msgRemov"> Are you sure you want to delete all tasks?  </span>
+      <br> <br> <br>
+      <button type="button" class="btn btn-dark btn-sm  mr-5"(click)="confirmRemove()">Close</button>
+      <button type="button" class="btn btn-danger btn-sm"(click)="Remove()">Remove</button>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <button class="btn btn-info" (click)="onclicTest()">click</button> -->
+
+

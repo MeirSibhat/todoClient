@@ -1,0 +1,37 @@
+header {
+ height: 100px;
+  background-image: url("https://cdn.pixabay.com/photo/2015/09/07/10/58/board-928392_1280.jpg");
+  background-size: cover;
+
+  text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
+  color:white;;
+}
+.erro-block-name{
+  color: red;
+}
+.erro-block-category{
+  color: red;
+}
+
+.dark{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  background-color: rgba(0, 0, 0, 0.746);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark_box{
+
+  width:100%;
+  max-width: 400px;
+  background: white;
+  min-height: 300px;
+  border-radius: 12px;
+  padding:8px
+}

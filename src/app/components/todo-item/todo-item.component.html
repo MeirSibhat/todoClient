@@ -1,0 +1,60 @@
+<div *ngIf="this.open">
+  <div class="dark " id="id_dark">
+    <div class="dark_box text-center">
+      <form (ngSubmit)='onSubmit(Form)' #Form='ngForm'>
+        <div class="form-group col-12">
+          <label for="category" class="form-label">Category</label>
+          <select class="selectpicker" class="form-control" #propsCategory='ngModel' [(ngModel)]="todoItem.category"
+            required minlength=4 ngModel name="category">
+            <option>Sport</option>
+            <option>Meet</option>
+            <option>HomeWork</option>
+            <option>Studies</option>
+            <option>tours</option>
+          </select>
+          <span *ngIf="(propsCategory.formDirective.submitted&&!propsCategory.valid)||
+          (!propsCategory.valid && propsCategory.touched)" class="erro-block-category">
+            <span *ngIf="propsCategory.errors.required">Please provide category </span>
+            <span *ngIf="propsCategory.errors.minlength"> Category must be atleast 4 char long </span>
+          </span>
+        </div>
+        <br>
+        <div class="form-group col-12">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" #propsName='ngModel' [(ngModel)]="todoItem.name" required minlength=10
+            ngModel name="name">
+          <!-- <span  *ngIf="!propsName.valid && propsName.touched" class="erro-block-name"> -->
+          <span *ngIf="(propsName.formDirective.submitted&&!propsName.valid) ||
+         (!propsName.valid && propsName.touched)" class="erro-block-name">
+            <span *ngIf="propsName.errors.required">Please provide name </span>
+            <span *ngIf="propsName.errors.minlength"> Name must be atleast 10 char long </span>
+          </span>
+        </div>
+        <br> <br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="refreInfo()">Close</button>
+          <span *ngIf="(Form.valid)"> <button type="submit" class="btn btn-primary">Save changes</button></span>
+          <span *ngIf="(!Form.valid)"> <button type="submit" class="btn btn-warning">Save changes</button></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="!this.open">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{todoItem.category}}
+        <small> <i class="far fa-clock float-right"> {{todoItem.date}}</i></small>
+      </h5>
+      <hr>
+      <p class="card-text">{{todoItem.name}}</p>
+      <div>
+        <i class="fas fa-trash-alt mt-2 float-right" (click)="OnRemoveItem()"></i>
+        <i class="fas fa-edit mt-2  float-right" (click)="refreInfo()" data-toggle="modal" data-target="#modelEdit"
+          style="color:blue;padding-right: 20px"></i>
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>

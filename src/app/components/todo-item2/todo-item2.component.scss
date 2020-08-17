@@ -1,0 +1,30 @@
+.dark{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left:0;
+  background-color: rgba(0, 0, 0, 0.746);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dark_box{
+
+  width:100%;
+  max-width: 400px;
+  background: white;
+  min-height: 300px;
+  border-radius: 12px;
+  padding:8px
+}
+
+
+.erro-block-name{
+  color: red;
+}
+.erro-block-category{
+  color: red;
+}

@@ -1,0 +1,10 @@
+<!-- <app-heaader> </app-heaader> -->
+
+
+<app-heaader (updateListFromHeader)="updateList($event)"></app-heaader>
+
+<app-todo-list (updateListFromList)="updateList($event)" [todoList]="todoList"></app-todo-list>
+
+
+
+<!-- {{message}} -->
