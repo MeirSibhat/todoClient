@@ -9,9 +9,9 @@ import { Observable } from 'rxjs';
 })
 export class MyDataService {
  localUrl="http://localhost:3000/todo/";
- apiUrl="?";
+ apiUrl="https://api-todo-angular-meir.herokuapp.com/todo/";
 
-   myUrl=this.localUrl;
+   myUrl=this.apiUrl;
   constructor(public http: HttpClient) { }
   updetList(){
     // this.myListTest="meir meir meir ";

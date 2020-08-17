@@ -1,10 +1,10 @@
 
 <div class="container">
-  <div class="row ">
+
       <!-- <div *ngFor="let item of todoList" class="shadow-lg offset-md-3  col-md-6   offset-md-3 p-5 mb-2"> -->
-        <div *ngFor="let item of todoList" class=" shadow-lg offset-md-2  col-md-8  offset-md-2 p-1 mb-1">
+        <div *ngFor="let item of todoList" class=" shadow-lg  p-1 mb-1">
           <!-- <app-todo-item2 [todoItem]="item"(updateListFromList)="updateTodos($event)" ></app-todo-item2> -->
        <app-todo-item [todoItem]="item"(updateListFromList)="updateTodos($event)" ></app-todo-item>
-  </div>
+
 </div>
 </div>
